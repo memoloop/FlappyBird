@@ -1,6 +1,7 @@
 #pragma once
 #include "core/iGame.hpp"
-#include "graphics/sprite.hpp"
+#include "entities/bird.hpp"
+#include "entities/base.hpp"
 
 class Game : public IGame {
 public:
@@ -13,5 +14,7 @@ public:
     void cleanUp();
 
 private:
-    Sprite* sprite = nullptr;
+    Bird* bird = nullptr;
+    Base* base1 = nullptr;
+    Base* base2 = nullptr;
 };

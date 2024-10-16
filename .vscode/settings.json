@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "iostream": "cpp",
-        "hash_map": "cpp",
-        "filesystem": "cpp",
-        "map": "cpp",
-        "utility": "cpp"
-    }
-}

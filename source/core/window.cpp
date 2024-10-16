@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "../utils/codeError.hpp"
+#include "keyboard.hpp"
 
 Window::Window(int width, int height, const char* title) {
     // Create window
@@ -37,7 +38,7 @@ Window::~Window() {
     SDL_DestroyRenderer(renderer);
 }
 
-void Window::run(IGame* game) {
+void Window::run(IGame* game, Uint32 delay) {
     game->window = window;
     game->renderer = renderer;
 
@@ -54,8 +55,10 @@ void Window::run(IGame* game) {
                 running = false; // Quit loop
                 break;
             }
-            game->update();
         }
+        Keyboard::takeEvents();
+
+        game->update();
 
         // Clear the window
         SDL_RenderClear(renderer);
@@ -66,6 +69,9 @@ void Window::run(IGame* game) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // black
         // Update window
         SDL_RenderPresent(renderer);
+
+        // Set delay
+        SDL_Delay(delay);
     }
     // On exit
     delete game;

@@ -6,7 +6,7 @@ class Window {
 public:
     Window(int width, int height, const char* title);
     ~Window();
-    void run(IGame* game);
+    void run(IGame* game, Uint32 delay);
 
 private:
     SDL_Window* window = nullptr;           // window pointer

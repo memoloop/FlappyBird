@@ -6,11 +6,12 @@
 class Sprite {
 public:
     Sprite(int x, int y, int width, int height, Texture* texture=nullptr);
-    ~Sprite();
+    virtual ~Sprite();
 
-    void draw(SDL_Renderer* renderer, SDL_Color color={255, 255, 255, 255});
-
-private:
+    virtual void draw(SDL_Renderer* renderer, SDL_Color color={255, 255, 255, 255});
+    
     SDL_Rect rect;
+
+protected:
     Texture* texture = nullptr;
 };

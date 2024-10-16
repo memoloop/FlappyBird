@@ -4,6 +4,7 @@
 #include "utils/codeError.hpp"
 #include "core/window.hpp"
 #include "game.hpp"
+#include "config.hpp"
 
 #ifdef __cplusplus
 extern "C"
@@ -21,8 +22,8 @@ int main(int argc, char* argv[]) {
         return Error::INIT_SDL2_IMAGE;
     }
 
-    Window window(1600, 900, "game");
-    window.run(new Game());
+    Window window(WINDOW_WIDTH, WINDOW_HEIGHT, TITLE_GAME);
+    window.run(new Game(), DELAY_MS);
 
     // Quit SDL2
     SDL_Quit();

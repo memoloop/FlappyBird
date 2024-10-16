@@ -10,18 +10,26 @@ Game::~Game() {
 
 void Game::initialize() {
     TextureLoader::loadTextureInFolder(renderer, "assets/sprites");
-    sprite = new Sprite(0, 0, 100, 100, TextureLoader::textureList["0"]);
+    bird = new Bird();
+    base1 = new Base(BaseOrder::FIRST);
+    base2 = new Base(BaseOrder::LAST);
 }
 
 void Game::update() {
-
+    bird->update();
+    base1->update();
+    base2->update();
 }
 
 void Game::draw() {
-    sprite->draw(renderer, {255, 255, 255, 255});
+    bird->draw(renderer);
+    base1->draw(renderer);
+    base2->draw(renderer);
 }
 
 void Game::cleanUp() {
-    delete sprite;
+    delete bird;
+    delete base1;
+    delete base2;
     TextureLoader::freeAllTexture();
 }
