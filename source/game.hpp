@@ -2,6 +2,7 @@
 #include "core/iGame.hpp"
 #include "entities/bird.hpp"
 #include "entities/base.hpp"
+#include "entities/background.hpp"
 
 class Game : public IGame {
 public:
@@ -13,8 +14,8 @@ public:
     void draw() override;
     void cleanUp();
 
-private:
-    Bird* bird = nullptr;
-    Base* base1 = nullptr;
-    Base* base2 = nullptr;
+    static Bird* bird;
+    static Base* base1;
+    static Base* base2;
+    static Background* bg;
 };

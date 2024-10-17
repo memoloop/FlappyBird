@@ -9,7 +9,7 @@
 #define WINDOW_HEIGHT 620
 
 // Delay in loop
-#define DELAY_MS 2 // ms
+#define DELAY_MS 5 // ms
 
 // Window title
 #define TITLE_GAME "Flappy Bird"

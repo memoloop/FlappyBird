@@ -14,4 +14,3 @@ $(TARGET): $(OBJS)
 
 clean:
 	del /Q /S *.o
-	@if exist $(TARGET) del /Q $(TARGET)

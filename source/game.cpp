@@ -2,6 +2,11 @@
 #include <iostream>
 #include "utils/textureLoader.hpp"
 
+Bird* Game::bird = nullptr;
+Base* Game::base1 = nullptr;
+Base* Game::base2 = nullptr;
+Background* Game::bg = nullptr;
+
 Game::Game() {}
 
 Game::~Game() {
@@ -13,6 +18,7 @@ void Game::initialize() {
     bird = new Bird();
     base1 = new Base(BaseOrder::FIRST);
     base2 = new Base(BaseOrder::LAST);
+    bg = new Background();
 }
 
 void Game::update() {
@@ -22,6 +28,7 @@ void Game::update() {
 }
 
 void Game::draw() {
+    bg->draw(renderer);
     bird->draw(renderer);
     base1->draw(renderer);
     base2->draw(renderer);
@@ -31,5 +38,6 @@ void Game::cleanUp() {
     delete bird;
     delete base1;
     delete base2;
+    delete bg;
     TextureLoader::freeAllTexture();
 }

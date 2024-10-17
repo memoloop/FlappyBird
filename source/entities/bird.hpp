@@ -17,7 +17,17 @@ private:
     int gravityForce = 1;
     void fall();
 
-    int jumpForce = 3;
+    int jumpForce = 4; // pair numbers
     float jumpTime = 0.0f;
     void jump();
+
+    float animationTime = 0.0f;
+    void flyAnimation();
+
+    /**
+     * bool solid:
+     *          - Set on true, if you want solid corps
+     *          - Set on false, if you want only return value
+     */
+    bool collisionWithBase(bool solid=true);
 };
